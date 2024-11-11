@@ -34,7 +34,7 @@ sns.set_style("whitegrid")
 
 # Plot the sentiment distribution
 plt.figure(figsize=(10, 6))
-sns.countplot(data=df_games, x='sentiment_category', palette='coolwarm')
+sns.countplot(data=df_games, x='sentiment_category', palette='coolwarm', hue=None, legend=False)
 plt.title('Sentiment Distribution of Game Descriptions for Dress-Up Games')
 plt.xlabel('Sentiment')
 plt.ylabel('Number of Games')
@@ -48,7 +48,7 @@ df_games['period'] = df_games['YOR'].apply(lambda x: 'pre-2011' if x < 2011 else
 
 # Boxplot to compare sentiment scores pre- and post-2011
 plt.figure(figsize=(10, 6))
-sns.boxplot(data=df_games, x='period', y='sentiment_score', palette='viridis')
+sns.boxplot(data=df_games, x='period', y='sentiment_score', palette='viridis', hue=None, legend=False)
 plt.title('Sentiment Scores Pre- and Post-2011')
 plt.xlabel('Period')
 plt.ylabel('Sentiment Score')
