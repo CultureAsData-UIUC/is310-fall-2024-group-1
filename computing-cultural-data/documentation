@@ -1,3 +1,16 @@
+Computation Method: Sentiment Analysis (Natural Language Processing)
+Cultural Data: User Reviews and Player Comments
+
+In this study, we used user-generated reviews and comments from Flashpoint dress-up games to assess player perceptions of diversity, specifically focusing on skin tone and gender representation. We utilized VADER Sentiment Analysis to categorize each review as positive, negative, or neutral, aiming to understand how players reacted to customization options.
+
+Findings:
+
+Pre-2011: Player reviews were mostly neutral or negative, often highlighting a lack of diverse skin tones.
+Post-2011: Reviews became more positive, with players praising the increased diversity of customization, such as more skin tone options and gender choices. Games developed by Rinmaru Games and Kongregate received specific praise for inclusivity efforts.
+The sentiment distribution was not well balanced, but with the addition of more datasets from the Flashpoint Archive, we expect a broader and more distributed analysis. This study adds an essential qualitative perspective, showing how players perceived inclusivity in these games. This complements quantitative methods like image analysis of visual features.
+
+For more on sentiment analysis in games, see: https://www.sbgames.org/proceedings2020/ComputacaoShort/209781.pdf
+
 https://www.sciencedirect.com/science/article/pii/S2212041617301559?casa_token=1TudC9YygHcAAAAA:KoR3h73zpIZMc03E5LyUIeLzHbbYcLx8V7GwMhKUGCOB_qLtqIvL3QmNpM11MhL9EvuTMsZs
 
 Computation Method: Image Recognition (Machine Learning)
