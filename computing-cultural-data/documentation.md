@@ -15,7 +15,7 @@ In this study, we used user-generated reviews and comments from Flashpoint dress
 - **Post-2011:** Reviews became more positive, with players praising the increased diversity of customization, such as more skin tone options and gender choices. Games developed by Rinmaru Games and Kongregate received specific praise for inclusivity efforts.
 
 The sentiment distribution was not well balanced, but with the addition of more datasets from the Flashpoint Archive, we expect a broader and more distributed analysis. This study adds an essential qualitative perspective, showing how players perceived inclusivity in these games. This complements quantitative methods like image analysis of visual features.
-
+doc
 For more on sentiment analysis in games, see:
 - [Proceedings of SBGames 2020](https://www.sbgames.org/proceedings2020/ComputacaoShort/209781.pdf)
 - [ScienceDirect Article on Sentiment Analysis](https://www.sciencedirect.com/science/article/pii/S2212041617301559?casa_token=1TudC9YygHcAAAAA:KoR3h73zpIZMc03E5LyUIeLzHbbYcLx8V7GwMhKUGCOB_qLtqIvL3QmNpM11MhL9EvuTMsZs)
@@ -56,6 +56,7 @@ While ImagePlot may not be the best tool for assessing dress-up games, given the
 
 ## Computation Method: Image Recognition (Machine Learning)
 ### Cultural Data: Social Media Photographs
+https://www.sciencedirect.com/science/article/pii/S2212041617301559?casa_token=1TudC9YygHcAAAAA:KoR3h73zpIZMc03E5LyUIeLzHbbYcLx8V7GwMhKUGCOB_qLtqIvL3QmNpM11MhL9EvuTMsZs
 
 In the article, researchers discussed using photos from social media to understand how people appreciate nature (e.g., through recreational activities) in Singapore. Manual analysis would have taken too long, so they used **machine learning** to automate the process. They gathered over 20,000 geo-tagged photos from Flickr, which were analyzed using **Google Cloud Vision**. This tool identified elements in the photos (e.g., "plant," "animal," "food") and tagged them accordingly.
 
