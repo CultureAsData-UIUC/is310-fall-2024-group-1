@@ -1,5 +1,5 @@
 # Computation Methods and Cultural Data Analysis
-##Cultural Data: Number of Skin Tones & Non Euro-Centric Features##
+## Cultural Data: Number of Skin Tones & Non Euro-Centric Features ##
 https://sociation.ncsociologyassoc.org/wp-content/uploads/2023/03/avatarwhiteness_proof_final.pdf
 Author: David R. Dietrich
 Cultural Data: Number of skin tones in video games (numeric)
