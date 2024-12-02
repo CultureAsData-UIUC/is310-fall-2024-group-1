@@ -34,7 +34,7 @@ def standardize_operability(status):
 # Main Script
 def main():
     try:
-        # Load the dataset with the correct delimiter to parse correctly
+        # Load the dataset with the correct delimiter and quote character
         df = pd.read_csv('dress_up_games.csv', sep=',', quotechar='"')
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
@@ -76,9 +76,10 @@ def main():
     logging.info("Converted 'YOR' to integer.")
 
     # Handle Sentiment Score and Sentiment Category - Fill missing with 0 and 'neutral'
-    df['SENTIMENT_SCORE'] = pd.to_numeric(df['SENTIMENT_SCORE'], errors='coerce').fillna(0)
-    df['SENTIMENT_CATEGORY'] = df['SENTIMENT_CATEGORY'].fillna('neutral')
-    logging.info("Filled missing values in 'SENTIMENT_SCORE' and 'SENTIMENT_CATEGORY'.")
+    if 'SENTIMENT_SCORE' in df.columns:
+        df['SENTIMENT_SCORE'] = pd.to_numeric(df['SENTIMENT_SCORE'], errors='coerce').fillna(0)
+        df['SENTIMENT_CATEGORY'] = df['SENTIMENT_CATEGORY'].fillna('neutral')
+        logging.info("Filled missing values in 'SENTIMENT_SCORE' and 'SENTIMENT_CATEGORY'.")
 
     # Handle 'GAME_DESCRIPTION' - Fill missing descriptions with 'No Description'
     df['GAME_DESCRIPTION'] = df['GAME_DESCRIPTION'].fillna('No Description')
@@ -110,4 +111,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
