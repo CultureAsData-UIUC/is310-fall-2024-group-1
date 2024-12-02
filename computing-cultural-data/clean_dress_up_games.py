@@ -5,11 +5,32 @@ import logging
 logging.basicConfig(filename='clean_dress_up_games.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
+def standardize_gender(gender):
+    if pd.isna(gender):
+        return 'Unknown'
+    gender = gender.replace(',', '/').replace(' ', '').upper()
+    if gender in ['M', 'F', 'M/F']:
+        return gender
+    return 'Other'
+
+def standardize_operability(status):
+    if pd.isna(status):
+        return 'Unknown'
+    status = status.lower()
+    if 'operable' in status and 'non-operable' not in status:
+        return 'Operable'
+    elif 'non-operable' in status:
+        return 'Non-operable'
+    elif 'partially operable' in status:
+        return 'Partially Operable'
+    else:
+        return 'Unknown'
+
 # Main Script
 def main():
     try:
         # Load the dataset with the correct delimiter
-        df = pd.read_csv('dress_up_games.csv', delimiter=',', header=0)  # Explicitly use comma as delimiter
+        df = pd.read_csv('dress_up_games.csv', delimiter=',')  # Default delimiter for CSV is comma
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
@@ -34,7 +55,7 @@ def main():
     logging.info("Filled missing values in 'DEVELOPER' and 'PUBLISHER'.")
 
     # Standardize 'GENDER'
-    df['GENDER'] = df['GENDER'].apply(lambda x: x.strip().upper() if pd.notna(x) else 'Unknown')
+    df['GENDER'] = df['GENDER'].apply(standardize_gender)
     logging.info("Standardized 'GENDER' column.")
 
     # Handle 'NO_OF_SKINTONES'
@@ -42,11 +63,7 @@ def main():
     logging.info("Converted 'NO_OF_SKINTONES' to numeric.")
 
     # Standardize 'OPERABILITY_STATUS'
-    df['OPERABILITY_STATUS'] = df['OPERABILITY_STATUS'].str.lower().replace({
-        'non-operable': 'Non-operable',
-        'operable': 'Operable',
-        'partially operable': 'Partially Operable'
-    }).fillna('Unknown')
+    df['OPERABILITY_STATUS'] = df['OPERABILITY_STATUS'].apply(standardize_operability)
     logging.info("Standardized 'OPERABILITY_STATUS' column.")
 
     # Convert 'YOR' to integer
@@ -78,5 +95,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
