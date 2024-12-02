@@ -32,7 +32,7 @@ def clean_game_link(link):
         return link.strip()
     return link
 
-def inspect_csv():
+def inspect_csv_with_csv_module():
     try:
         with open('dress_up_games.csv', encoding='utf-8-sig') as f:
             reader = csv.reader(f, delimiter=',', quotechar='"')
@@ -45,12 +45,31 @@ def inspect_csv():
     except Exception as e:
         print(f"Error reading CSV with csv module: {e}")
 
-def main():
+def detect_invisible_characters():
     try:
-        # Optional: Inspect the CSV first
-        print("Inspecting CSV with csv.reader:")
-        inspect_csv()
-        
+        with open('dress_up_games.csv', 'rb') as f:
+            content = f.read()
+            # Check for non-printable characters except common ones (tab, newline, carriage return)
+            non_printable = [byte for byte in content if byte < 32 and byte not in (9, 10, 13)]
+            if non_printable:
+                print(f"Non-printable characters detected: {non_printable}")
+            else:
+                print("No non-printable characters detected.")
+    except FileNotFoundError:
+        print("File 'dress_up_games.csv' not found.")
+    except Exception as e:
+        print(f"Error reading CSV for invisible characters: {e}")
+
+def main():
+    # Inspect the CSV first
+    print("Inspecting CSV with csv.reader:")
+    inspect_csv_with_csv_module()
+    
+    # Detect invisible characters
+    print("\nDetecting invisible characters in CSV:")
+    detect_invisible_characters()
+    
+    try:
         # Read the CSV with enhanced parameters
         df = pd.read_csv(
             'dress_up_games.csv',
