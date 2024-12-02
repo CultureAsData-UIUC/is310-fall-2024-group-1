@@ -1,5 +1,3 @@
-# clean_dress_up_games.py
-
 import pandas as pd
 import numpy as np
 
