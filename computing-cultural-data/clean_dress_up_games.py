@@ -1,5 +1,6 @@
 import pandas as pd
 import logging
+import csv
 
 # Configure logging
 logging.basicConfig(filename='clean_dress_up_games.log', level=logging.INFO,
@@ -31,8 +32,25 @@ def clean_game_link(link):
         return link.strip()
     return link
 
+def inspect_csv():
+    try:
+        with open('dress_up_games.csv', encoding='utf-8-sig') as f:
+            reader = csv.reader(f, delimiter=',', quotechar='"')
+            for i, row in enumerate(reader):
+                print(f"Row {i}: {row}")
+                if i >= 4:  # Inspect first 5 rows
+                    break
+    except FileNotFoundError:
+        print("File 'dress_up_games.csv' not found.")
+    except Exception as e:
+        print(f"Error reading CSV with csv module: {e}")
+
 def main():
     try:
+        # Optional: Inspect the CSV first
+        print("Inspecting CSV with csv.reader:")
+        inspect_csv()
+        
         # Read the CSV with enhanced parameters
         df = pd.read_csv(
             'dress_up_games.csv',
@@ -55,7 +73,7 @@ def main():
         return
 
     # Display initial data info
-    print("Initial Data Info:")
+    print("\nInitial Data Info:")
     print(df.info())
     print("\nInitial Data Sample:")
     print(df.head())
@@ -141,8 +159,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 
 
 
