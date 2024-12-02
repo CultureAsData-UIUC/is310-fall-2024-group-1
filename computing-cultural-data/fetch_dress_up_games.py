@@ -1,261 +1,149 @@
 """
-Dataset Validation Script for Dress-Up Games
+Fetch Dress-Up Games from Flashpoint Archive
 
-This script performs comprehensive validation checks on the 'cleaned_dress_up_games.csv' dataset.
-It ensures data integrity by checking for missing values, correct data types, valid categorical values,
-and other consistency checks. The results of the validation are logged and summarized in a report.
+This script fetches dress-up games from the Flashpoint Archive API, filters out NSFW content,
+and saves the data to CSV and Excel files.
 
 Usage:
-    python validate_dress_up_games.py
+    python fetch_dress_up_games.py
 
 Requirements:
+    - requests
     - pandas
-    - numpy
-    - python-dotenv (if using environment variables)
+    - python-dotenv
+    - openpyxl
 """
 
+import requests
 import pandas as pd
-import numpy as np
-import logging
-import sys
 import os
+import time
 from dotenv import load_dotenv
+import logging
 
-# Load environment variables from a .env file (if present)
+# Load environment variables from a .env file
 load_dotenv()
 
 # Configuration
-DATA_FILE = "cleaned_dress_up_games.csv"  # Path to your cleaned dataset
-REPORT_FILE = "validation_report.txt"     # Output report file
-LOG_FILE = "validate_dress_up_games.log"  # Log file for detailed logs
+API_KEY = os.getenv('FLASHPOINT_API_KEY')  # Ensure this is set in your .env file
+API_URL = "https://api.flashpointarchive.org/v1/games"  # Example endpoint; verify with actual API documentation
+OUTPUT_CSV = "dress_up_games.csv"
+OUTPUT_EXCEL = "dress_up_games.xlsx"
+PAGE_SIZE = 100  # Number of records per API call
+MAX_RETRIES = 5
+SLEEP_TIME = 2  # Seconds between retries to respect rate limits
 
 # Setup logging
 logging.basicConfig(
-    filename=LOG_FILE,
+    filename='fetch_dress_up_games.log',
     filemode='w',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-def load_data(file_path):
+def fetch_games(page, page_size):
     """
-    Load the dataset into a pandas DataFrame.
+    Fetch games from the Flashpoint API.
 
     Args:
-        file_path (str): Path to the CSV file.
+        page (int): Page number for pagination.
+        page_size (int): Number of records per page.
 
     Returns:
-        pd.DataFrame: Loaded DataFrame.
+        dict: JSON response from the API or None if an error occurs.
     """
+    headers = {
+        "Authorization": f"Bearer {API_KEY}"  # Adjust based on API requirements
+    }
+    params = {
+        "category": "dress-up",
+        "page": page,
+        "page_size": page_size
+    }
     try:
-        df = pd.read_csv(file_path)
-        logging.info(f"Successfully loaded data from {file_path}")
-        return df
-    except FileNotFoundError:
-        logging.error(f"File {file_path} not found.")
-        sys.exit(f"Error: File {file_path} not found.")
-    except pd.errors.EmptyDataError:
-        logging.error(f"File {file_path} is empty.")
-        sys.exit(f"Error: File {file_path} is empty.")
-    except Exception as e:
-        logging.error(f"An unexpected error occurred while loading data: {e}")
-        sys.exit(f"Error: An unexpected error occurred while loading data: {e}")
+        response = requests.get(API_URL, headers=headers, params=params)
+        response.raise_for_status()
+        logging.info(f"Successfully fetched page {page}")
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Request failed for page {page}: {e}")
+        return None
 
-def check_missing_values(df):
+def is_nsfw(game):
     """
-    Check for missing values in the DataFrame.
+    Determine if a game is NSFW based on its description.
 
     Args:
-        df (pd.DataFrame): The DataFrame to check.
+        game (dict): Game data.
 
     Returns:
-        pd.Series: Number of missing values per column.
+        bool: True if NSFW, False otherwise.
     """
-    missing = df.isnull().sum()
-    logging.info("Missing Values Check Completed.")
-    return missing
-
-def check_data_types(df):
-    """
-    Verify that each column has the expected data type.
-
-    Args:
-        df (pd.DataFrame): The DataFrame to check.
-
-    Returns:
-        dict: Columns with unexpected data types.
-    """
-    expected_types = {
-        'game_name': 'object',
-        'YOR': 'int64',
-        'operability_status': 'object',
-        'DEVELOPER': 'object',
-        'PUBLISHER': 'object',
-        'GENDER': 'object',
-        'NO_OF_SKINTONES': 'int64',
-        'GAME_LINK': 'object'
-    }
-    
-    type_mismatches = {}
-    for column, expected in expected_types.items():
-        if column not in df.columns:
-            type_mismatches[column] = f"Missing column."
-            logging.warning(f"Missing column: {column}")
-            continue
-        actual = df[column].dtype
-        if actual != expected:
-            type_mismatches[column] = f"Expected {expected}, but got {actual}"
-            logging.warning(f"Data type mismatch in column '{column}': Expected {expected}, but got {actual}")
-    
-    logging.info("Data Types Check Completed.")
-    return type_mismatches
-
-def check_categorical_values(df):
-    """
-    Ensure that categorical columns contain only expected values.
-
-    Args:
-        df (pd.DataFrame): The DataFrame to check.
-
-    Returns:
-        dict: Columns with unexpected categorical values.
-    """
-    categorical_checks = {
-        'operability_status': ['operable', 'non-operable', 'partially operable'],
-        'GENDER': ['F', 'M', 'M/F', 'Non-binary', 'Other']  # Adjust based on your dataset
-    }
-    
-    invalid_entries = {}
-    for column, valid_values in categorical_checks.items():
-        if column not in df.columns:
-            invalid_entries[column] = f"Missing column."
-            logging.warning(f"Missing column for categorical check: {column}")
-            continue
-        unique_values = df[column].dropna().unique().tolist()
-        invalid = [val for val in unique_values if val not in valid_values]
-        if invalid:
-            invalid_entries[column] = invalid
-            logging.warning(f"Invalid entries found in column '{column}': {invalid}")
-    
-    logging.info("Categorical Values Check Completed.")
-    return invalid_entries
-
-def check_url_validity(df):
-    """
-    Validate that GAME_LINK URLs are properly formatted.
-
-    Args:
-        df (pd.DataFrame): The DataFrame to check.
-
-    Returns:
-        list: Indices of rows with invalid URLs.
-    """
-    import re
-    url_pattern = re.compile(
-        r'^(https?://)'  # http:// or https://
-        r'(\w+(\-\w+)*\.)+'  # Domain name
-        r'([a-zA-Z]{2,})'  # Top-level domain
-        r'(/[^\s]*)?$'  # Optional path
-    )
-    
-    invalid_urls = df[~df['GAME_LINK'].astype(str).str.match(url_pattern)].index.tolist()
-    if invalid_urls:
-        logging.warning(f"Invalid URLs found at indices: {invalid_urls}")
-    logging.info("URL Validity Check Completed.")
-    return invalid_urls
-
-def check_duplicates(df):
-    """
-    Check for duplicate rows in the DataFrame.
-
-    Args:
-        df (pd.DataFrame): The DataFrame to check.
-
-    Returns:
-        int: Number of duplicate rows.
-    """
-    duplicates = df.duplicated().sum()
-    if duplicates > 0:
-        logging.warning(f"Found {duplicates} duplicate rows.")
-    else:
-        logging.info("No duplicate rows found.")
-    return duplicates
-
-def generate_report(missing, type_mismatches, categorical_invalid, invalid_urls, duplicates):
-    """
-    Generate a validation report summarizing all checks.
-
-    Args:
-        missing (pd.Series): Missing values per column.
-        type_mismatches (dict): Data type mismatches.
-        categorical_invalid (dict): Invalid categorical values.
-        invalid_urls (list): Indices of rows with invalid URLs.
-        duplicates (int): Number of duplicate rows.
-
-    Returns:
-        None
-    """
-    with open(REPORT_FILE, 'w') as f:
-        f.write("=== Dataset Validation Report ===\n\n")
-        
-        f.write("1. Missing Values:\n")
-        if missing.sum() == 0:
-            f.write("   No missing values found.\n\n")
-        else:
-            f.write(missing[missing > 0].to_string())
-            f.write("\n\n")
-        
-        f.write("2. Data Type Mismatches:\n")
-        if not type_mismatches:
-            f.write("   All columns have expected data types.\n\n")
-        else:
-            for column, issue in type_mismatches.items():
-                f.write(f"   - {column}: {issue}\n")
-            f.write("\n")
-        
-        f.write("3. Categorical Values Check:\n")
-        if not categorical_invalid:
-            f.write("   All categorical columns contain only expected values.\n\n")
-        else:
-            for column, invalids in categorical_invalid.items():
-                f.write(f"   - {column}: Invalid entries -> {invalids}\n")
-            f.write("\n")
-        
-        f.write("4. URL Validity:\n")
-        if not invalid_urls:
-            f.write("   All GAME_LINK URLs are valid.\n\n")
-        else:
-            f.write(f"   Invalid URLs found at row indices: {invalid_urls}\n\n")
-        
-        f.write("5. Duplicate Rows:\n")
-        if duplicates == 0:
-            f.write("   No duplicate rows found.\n\n")
-        else:
-            f.write(f"   Found {duplicates} duplicate rows.\n\n")
-        
-        f.write("=== End of Report ===\n")
-    
-    logging.info(f"Validation report generated at {REPORT_FILE}")
+    nsfw_keywords = ['nsfw', 'explicit', 'adult', 'violence', 'blood', 'gore', 'sexual', 'mature', 'graphic', 'offensive']
+    description = game.get('description', '').lower()
+    return any(keyword in description for keyword in nsfw_keywords)
 
 def main():
     """
-    Main function to perform all validation checks and generate a report.
+    Main function to fetch, filter, and save dress-up games data.
     """
-    # Load data
-    df = load_data(DATA_FILE)
-    
-    # Perform validation checks
-    missing = check_missing_values(df)
-    type_mismatches = check_data_types(df)
-    categorical_invalid = check_categorical_values(df)
-    invalid_urls = check_url_validity(df)
-    duplicates = check_duplicates(df)
-    
-    # Generate validation report
-    generate_report(missing, type_mismatches, categorical_invalid, invalid_urls, duplicates)
-    
-    print(f"Validation completed. Report saved to {REPORT_FILE}")
-    logging.info("Dataset validation process completed successfully.")
+    if not API_KEY:
+        logging.error("FLASHPOINT_API_KEY is not set. Please set it in the .env file.")
+        print("Error: FLASHPOINT_API_KEY is not set. Please set it in the .env file.")
+        return
+
+    all_games = []
+    page = 1
+
+    while True:
+        print(f"Fetching page {page}...")
+        data = fetch_games(page, PAGE_SIZE)
+        if not data:
+            print(f"Failed to fetch data for page {page}. Exiting.")
+            break
+
+        games = data.get('results', [])
+        if not games:
+            print("No more games found. Finishing fetch.")
+            break
+
+        for game in games:
+            if not is_nsfw(game):
+                all_games.append({
+                    'id': game.get('id'),
+                    'title': game.get('title'),
+                    'description': game.get('description'),
+                    'year_of_release': game.get('year_of_release'),
+                    'number_of_skin_tones': game.get('number_of_skin_tones'),
+                    'operability_status': game.get('operability_status'),
+                    'developer': game.get('developer'),
+                    'publisher': game.get('publisher'),
+                    'gender_options': game.get('gender_options'),
+                    'game_link': game.get('game_link')
+                })
+            else:
+                logging.info(f"Excluded NSFW game: {game.get('title')}")
+
+        page += 1
+        time.sleep(SLEEP_TIME)  # Respect API rate limits
+
+    # Convert to DataFrame
+    df = pd.DataFrame(all_games)
+
+    if not df.empty:
+        # Save to CSV
+        df.to_csv(OUTPUT_CSV, index=False)
+        logging.info(f"Saved {len(df)} games to {OUTPUT_CSV}")
+        print(f"Saved {len(df)} games to {OUTPUT_CSV}")
+
+        # Save to Excel
+        df.to_excel(OUTPUT_EXCEL, index=False)
+        logging.info(f"Saved {len(df)} games to {OUTPUT_EXCEL}")
+        print(f"Saved {len(df)} games to {OUTPUT_EXCEL}")
+    else:
+        logging.warning("No games fetched to save.")
+        print("No games fetched to save.")
 
 if __name__ == "__main__":
     main()
+
