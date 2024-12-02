@@ -33,8 +33,15 @@ def clean_game_link(link):
 
 def main():
     try:
-        # Read the CSV with appropriate parameters
-        df = pd.read_csv('dress_up_games.csv', encoding='utf-8-sig', delimiter=',', quotechar='"', engine='python')
+        # Read the CSV with enhanced parameters
+        df = pd.read_csv(
+            'dress_up_games.csv',
+            encoding='utf-8-sig',    # Handles BOM if present
+            sep=',',
+            quotechar='"',
+            engine='python',          # More flexible parsing
+            on_bad_lines='skip'       # Skip malformed lines
+        )
         logging.info("Loaded 'dress_up_games.csv' successfully.")
         print("Columns Detected:", df.columns.tolist())  # Debugging line to check column names
     except FileNotFoundError:
@@ -56,8 +63,9 @@ def main():
     # Standardize Column Names
     df.columns = [col.strip().upper().replace(' ', '_').replace('.', '') for col in df.columns]
     logging.info("Standardized column names.")
+    print("Standardized Columns:", df.columns.tolist())  # Additional debugging
 
-    # Handle Missing Values
+    # Handle Missing Values with Conditional Checks
     if 'DEVELOPER' in df.columns:
         df['DEVELOPER'] = df['DEVELOPER'].fillna('Unknown')
         logging.info("Filled missing values in 'DEVELOPER'.")
