@@ -2,8 +2,8 @@
 Exploring the byegone era of Adobe Flash games
 
 ## Project Manager Rotation
-- **__Current PM (Nov 6-12th)__**: Thea K.
-- **Next PM**: A.G.
+- **__Current PM (Nov 18th-Dec 3rd)__**: A.G. Samaniego
+- **Next PM**: Divya J.
 - **Rotation as shown**: (A.G., Divya J., Ellis L., Thea K.)
 
 ## Premise of Project
