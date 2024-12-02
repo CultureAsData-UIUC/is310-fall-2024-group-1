@@ -1,19 +1,3 @@
-"""
-Fetch Dress-Up Games from Flashpoint Archive
-
-This script fetches dress-up games from the Flashpoint Archive API, filters out NSFW content,
-and saves the data to CSV and Excel files.
-
-Usage:
-    python fetch_dress_up_games.py
-
-Requirements:
-    - requests
-    - pandas
-    - python-dotenv
-    - openpyxl
-"""
-
 import requests
 import pandas as pd
 import os
