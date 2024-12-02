@@ -36,7 +36,7 @@ def clean_game_link(link):
 def main():
     try:
         # Load the dataset
-        df = pd.read_csv('dress_up_games.csv', delimiter='\t')  # Adjust delimiter if needed
+        df = pd.read_csv('dress_up_games.csv')  # Adjust delimiter if needed
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
@@ -69,12 +69,18 @@ def main():
     logging.info("Converted 'NO_OF_SKINTONES' to numeric.")
 
     # Clean 'GAME_LINK'
-    df['GAME_LINK'] = df['GAME_LINK'].apply(clean_game_link)
-    logging.info("Cleaned 'GAME_LINK' column.")
+    if 'GAME_LINK' in df.columns:
+        df['GAME_LINK'] = df['GAME_LINK'].apply(clean_game_link)
+        logging.info("Cleaned 'GAME_LINK' column.")
+    else:
+        logging.warning("'GAME_LINK' column not found in dataset.")
 
     # Standardize 'OPERABILITY_STATUS'
-    df['OPERABILITY_STATUS'] = df['OPERABILITY_STATUS'].apply(standardize_operability)
-    logging.info("Standardized 'OPERABILITY_STATUS' column.")
+    if 'OPERABILITY_STATUS' in df.columns:
+        df['OPERABILITY_STATUS'] = df['OPERABILITY_STATUS'].apply(standardize_operability)
+        logging.info("Standardized 'OPERABILITY_STATUS' column.")
+    else:
+        logging.warning("'OPERABILITY_STATUS' column not found in dataset.")
 
     # Convert 'YOR' to integer
     df['YOR'] = pd.to_numeric(df['YOR'], errors='coerce').fillna(0).astype(int)
@@ -105,3 +111,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
