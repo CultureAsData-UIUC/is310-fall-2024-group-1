@@ -2,8 +2,11 @@ import pandas as pd
 import logging
 
 # Configure logging
-logging.basicConfig(filename='clean_dress_up_games.log', level=logging.INFO,
-                    format='%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(
+    filename='clean_dress_up_games.log',
+    level=logging.INFO,
+    format='%(asctime)s:%(levelname)s:%(message)s'
+)
 
 def standardize_gender(gender):
     if pd.isna(gender):
@@ -26,7 +29,6 @@ def standardize_operability(status):
     else:
         return 'Unknown'
 
-# Main Script
 def main():
     try:
         # Load the dataset with enhanced parameters
@@ -42,9 +44,11 @@ def main():
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
+        print("File 'dress_up_games.csv' not found.")
         return
     except Exception as e:
         logging.error(f"Error loading CSV: {e}")
+        print(f"Error loading CSV: {e}")
         return
 
     # Display initial data info
@@ -53,9 +57,17 @@ def main():
     print("\nInitial Data Sample:")
     print(df.head())
 
+    # Print columns to verify
+    print("\nColumns in DataFrame:")
+    print(df.columns.tolist())
+
     # Standardize Column Names
     df.columns = [col.strip().upper().replace(' ', '_') for col in df.columns]
     logging.info("Standardized column names.")
+
+    # Print standardized columns
+    print("\nStandardized Columns:")
+    print(df.columns.tolist())
 
     # Verify if expected columns exist
     expected_columns = [
@@ -66,13 +78,15 @@ def main():
         'PUBLISHER',
         'GENDER',
         'NO_OF_SKINTONES',
-        'GAME_LINK'
+        'GAME_LINK'  # Ensure this matches your CSV
     ]
     missing_columns = [col for col in expected_columns if col not in df.columns]
     if missing_columns:
         logging.error(f"Missing columns after parsing: {missing_columns}")
         print(f"Missing columns: {missing_columns}")
         return
+    else:
+        logging.info("All expected columns are present.")
 
     # Handle Missing Values
     df['DEVELOPER'] = df['DEVELOPER'].fillna('Unknown')
@@ -117,9 +131,11 @@ def main():
         print("\nCleaned data saved to 'cleaned_dress_up_games.csv'")
     except Exception as e:
         logging.error(f"Error saving cleaned CSV: {e}")
+        print(f"Error saving cleaned CSV: {e}")
 
 if __name__ == "__main__":
     main()
+
 
 
 
