@@ -1,11 +1,10 @@
 import pandas as pd
-import numpy as np
-import re
 import logging
 
-# Configure logging
+
 logging.basicConfig(filename='clean_dress_up_games.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
+
 
 def standardize_gender(gender):
     if pd.isna(gender):
@@ -28,15 +27,11 @@ def standardize_operability(status):
     else:
         return 'Unknown'
 
-def clean_game_link(link):
-    if isinstance(link, str):
-        return link.strip()
-    return link
-
+# Main Script
 def main():
     try:
         # Load the dataset
-        df = pd.read_csv('dress_up_games.csv')  # Adjust delimiter if needed
+        df = pd.read_csv('dress_up_games.csv')
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
@@ -52,7 +47,7 @@ def main():
     print(df.head())
 
     # Standardize Column Names
-    df.columns = [col.strip().upper().replace(' ', '_').replace('.', '') for col in df.columns]
+    df.columns = [col.strip().upper().replace(' ', '_') for col in df.columns]
     logging.info("Standardized column names.")
 
     # Handle Missing Values
@@ -68,19 +63,9 @@ def main():
     df['NO_OF_SKINTONES'] = pd.to_numeric(df['NO_OF_SKINTONES'], errors='coerce').fillna(0).astype(int)
     logging.info("Converted 'NO_OF_SKINTONES' to numeric.")
 
-    # Clean 'GAME_LINK'
-    if 'GAME_LINK' in df.columns:
-        df['GAME_LINK'] = df['GAME_LINK'].apply(clean_game_link)
-        logging.info("Cleaned 'GAME_LINK' column.")
-    else:
-        logging.warning("'GAME_LINK' column not found in dataset.")
-
     # Standardize 'OPERABILITY_STATUS'
-    if 'OPERABILITY_STATUS' in df.columns:
-        df['OPERABILITY_STATUS'] = df['OPERABILITY_STATUS'].apply(standardize_operability)
-        logging.info("Standardized 'OPERABILITY_STATUS' column.")
-    else:
-        logging.warning("'OPERABILITY_STATUS' column not found in dataset.")
+    df['OPERABILITY_STATUS'] = df['OPERABILITY_STATUS'].apply(standardize_operability)
+    logging.info("Standardized 'OPERABILITY_STATUS' column.")
 
     # Convert 'YOR' to integer
     df['YOR'] = pd.to_numeric(df['YOR'], errors='coerce').fillna(0).astype(int)
@@ -111,4 +96,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
