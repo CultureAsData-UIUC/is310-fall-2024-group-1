@@ -33,12 +33,15 @@ def clean_game_link(link):
 
 def main():
     try:
-        # Load the dataset with the correct delimiter
-        df = pd.read_csv('dress_up_games.csv', delimiter=',')
+        # Read the CSV with appropriate parameters
+        df = pd.read_csv('dress_up_games.csv', encoding='utf-8-sig', delimiter=',', quotechar='"', engine='python')
         logging.info("Loaded 'dress_up_games.csv' successfully.")
-        print("Columns Detected:", df.columns)  # Debugging line to check column names
+        print("Columns Detected:", df.columns.tolist())  # Debugging line to check column names
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
+        return
+    except pd.errors.ParserError as e:
+        logging.error(f"Pandas Parser Error: {e}")
         return
     except Exception as e:
         logging.error(f"Error loading CSV: {e}")
@@ -55,17 +58,31 @@ def main():
     logging.info("Standardized column names.")
 
     # Handle Missing Values
-    df['DEVELOPER'] = df['DEVELOPER'].fillna('Unknown')
-    df['PUBLISHER'] = df['PUBLISHER'].fillna('Unknown')
-    logging.info("Filled missing values in 'DEVELOPER' and 'PUBLISHER'.")
+    if 'DEVELOPER' in df.columns:
+        df['DEVELOPER'] = df['DEVELOPER'].fillna('Unknown')
+        logging.info("Filled missing values in 'DEVELOPER'.")
+    else:
+        logging.warning("'DEVELOPER' column not found in dataset.")
+
+    if 'PUBLISHER' in df.columns:
+        df['PUBLISHER'] = df['PUBLISHER'].fillna('Unknown')
+        logging.info("Filled missing values in 'PUBLISHER'.")
+    else:
+        logging.warning("'PUBLISHER' column not found in dataset.")
 
     # Standardize 'GENDER'
-    df['GENDER'] = df['GENDER'].apply(standardize_gender)
-    logging.info("Standardized 'GENDER' column.")
+    if 'GENDER' in df.columns:
+        df['GENDER'] = df['GENDER'].apply(standardize_gender)
+        logging.info("Standardized 'GENDER' column.")
+    else:
+        logging.warning("'GENDER' column not found in dataset.")
 
     # Handle 'NO_OF_SKINTONES'
-    df['NO_OF_SKINTONES'] = pd.to_numeric(df['NO_OF_SKINTONES'], errors='coerce').fillna(0).astype(int)
-    logging.info("Converted 'NO_OF_SKINTONES' to numeric.")
+    if 'NO_OF_SKINTONES' in df.columns:
+        df['NO_OF_SKINTONES'] = pd.to_numeric(df['NO_OF_SKINTONES'], errors='coerce').fillna(0).astype(int)
+        logging.info("Converted 'NO_OF_SKINTONES' to numeric.")
+    else:
+        logging.warning("'NO_OF_SKINTONES' column not found in dataset.")
 
     # Clean 'GAME_LINK'
     if 'GAME_LINK' in df.columns:
@@ -82,14 +99,20 @@ def main():
         logging.warning("'OPERABILITY_STATUS' column not found in dataset.")
 
     # Convert 'YOR' to integer
-    df['YOR'] = pd.to_numeric(df['YOR'], errors='coerce').fillna(0).astype(int)
-    logging.info("Converted 'YOR' to integer.")
+    if 'YOR' in df.columns:
+        df['YOR'] = pd.to_numeric(df['YOR'], errors='coerce').fillna(0).astype(int)
+        logging.info("Converted 'YOR' to integer.")
+    else:
+        logging.warning("'YOR' column not found in dataset.")
 
     # Remove duplicate entries based on 'GAME_NAME' and 'YOR'
-    before_dedup = len(df)
-    df = df.drop_duplicates(subset=['GAME_NAME', 'YOR'])
-    after_dedup = len(df)
-    logging.info(f"Removed duplicates: {before_dedup - after_dedup} entries dropped.")
+    if 'GAME_NAME' in df.columns and 'YOR' in df.columns:
+        before_dedup = len(df)
+        df = df.drop_duplicates(subset=['GAME_NAME', 'YOR'])
+        after_dedup = len(df)
+        logging.info(f"Removed duplicates: {before_dedup - after_dedup} entries dropped.")
+    else:
+        logging.warning("Cannot remove duplicates because 'GAME_NAME' or 'YOR' columns are missing.")
 
     # Reset index
     df.reset_index(drop=True, inplace=True)
@@ -110,6 +133,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
