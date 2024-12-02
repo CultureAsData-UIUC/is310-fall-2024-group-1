@@ -30,7 +30,7 @@ def standardize_operability(status):
 def main():
     try:
         # Load the dataset with the correct delimiter to parse correctly
-        df = pd.read_csv('dress_up_games.csv', sep=',')
+        df = pd.read_csv('dress_up_games.csv', sep=',', quotechar='"')
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
@@ -97,5 +97,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
