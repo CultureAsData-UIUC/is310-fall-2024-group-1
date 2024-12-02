@@ -29,8 +29,16 @@ def standardize_operability(status):
 # Main Script
 def main():
     try:
-        # Load the dataset with the correct delimiter
-        df = pd.read_csv('dress_up_games.csv', delimiter=',')  # Default delimiter for CSV is comma
+        # Attempt to load the dataset with enhanced parameters
+        df = pd.read_csv(
+            'dress_up_games.csv',
+            delimiter=',',
+            quotechar='"',
+            escapechar='\\',
+            encoding='utf-8-sig',  # Handles BOM if present
+            engine='python',       # Python engine for better handling
+            on_bad_lines='warn'    # Warn about bad lines without stopping
+        )
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
@@ -44,6 +52,14 @@ def main():
     print(df.info())
     print("\nInitial Data Sample:")
     print(df.head())
+
+    # Verify if expected columns exist
+    expected_columns = ['GAME_NAME', 'YOR', 'OPERABILITY_STATUS', 'DEVELOPER', 'PUBLISHER', 'GENDER', 'NO_OF_SKINTONES', 'GAME_DESCRIPTION', 'GAME_LINK']
+    missing_columns = [col for col in expected_columns if col not in df.columns]
+    if missing_columns:
+        logging.error(f"Missing columns after parsing: {missing_columns}")
+        print(f"Missing columns: {missing_columns}")
+        return
 
     # Standardize Column Names
     df.columns = [col.strip().upper().replace(' ', '_') for col in df.columns]
@@ -95,6 +111,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
