@@ -29,7 +29,7 @@ def standardize_operability(status):
 # Main Script
 def main():
     try:
-        # Attempt to load the dataset with enhanced parameters
+        # Load the dataset with enhanced parameters
         df = pd.read_csv(
             'dress_up_games.csv',
             delimiter=',',
@@ -53,17 +53,26 @@ def main():
     print("\nInitial Data Sample:")
     print(df.head())
 
+    # Standardize Column Names
+    df.columns = [col.strip().upper().replace(' ', '_') for col in df.columns]
+    logging.info("Standardized column names.")
+
     # Verify if expected columns exist
-    expected_columns = ['GAME_NAME', 'YOR', 'OPERABILITY_STATUS', 'DEVELOPER', 'PUBLISHER', 'GENDER', 'NO_OF_SKINTONES', 'GAME_DESCRIPTION', 'GAME_LINK']
+    expected_columns = [
+        'GAME_NAME',
+        'YOR',
+        'OPERABILITY_STATUS',
+        'DEVELOPER',
+        'PUBLISHER',
+        'GENDER',
+        'NO_OF_SKINTONES',
+        'GAME_LINK'
+    ]
     missing_columns = [col for col in expected_columns if col not in df.columns]
     if missing_columns:
         logging.error(f"Missing columns after parsing: {missing_columns}")
         print(f"Missing columns: {missing_columns}")
         return
-
-    # Standardize Column Names
-    df.columns = [col.strip().upper().replace(' ', '_') for col in df.columns]
-    logging.info("Standardized column names.")
 
     # Handle Missing Values
     df['DEVELOPER'] = df['DEVELOPER'].fillna('Unknown')
