@@ -1,7 +1,7 @@
 import pandas as pd
 import logging
 
-
+# Configure logging
 logging.basicConfig(filename='clean_dress_up_games.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
@@ -26,11 +26,11 @@ def standardize_operability(status):
     else:
         return 'Unknown'
 
-
+# Main Script
 def main():
     try:
-        
-        df = pd.read_csv('dress_up_games.csv', delimiter=',')
+        # Load the dataset with the correct delimiter to parse correctly
+        df = pd.read_csv('dress_up_games.csv', sep=',')
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
@@ -39,13 +39,13 @@ def main():
         logging.error(f"Error loading CSV: {e}")
         return
 
-   
+    # Display initial data info
     print("Initial Data Info:")
     print(df.info())
     print("\nInitial Data Sample:")
     print(df.head())
 
-    
+    # Standardize Column Names
     df.columns = [col.strip().upper().replace(' ', '_') for col in df.columns]
     logging.info("Standardized column names.")
 
@@ -97,4 +97,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
