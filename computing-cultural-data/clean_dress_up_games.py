@@ -5,7 +5,6 @@ import logging
 logging.basicConfig(filename='clean_dress_up_games.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
-
 def standardize_gender(gender):
     if pd.isna(gender):
         return 'Unknown'
@@ -27,11 +26,11 @@ def standardize_operability(status):
     else:
         return 'Unknown'
 
-# Main Script
+
 def main():
     try:
-        # Load the dataset
-        df = pd.read_csv('dress_up_games.csv')
+        
+        df = pd.read_csv('dress_up_games.csv', delimiter=',')
         logging.info("Loaded 'dress_up_games.csv' successfully.")
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
@@ -40,20 +39,22 @@ def main():
         logging.error(f"Error loading CSV: {e}")
         return
 
-    # Display initial data info
+   
     print("Initial Data Info:")
     print(df.info())
     print("\nInitial Data Sample:")
     print(df.head())
 
-    # Standardize Column Names
+    
     df.columns = [col.strip().upper().replace(' ', '_') for col in df.columns]
     logging.info("Standardized column names.")
 
     # Handle Missing Values
     df['DEVELOPER'] = df['DEVELOPER'].fillna('Unknown')
     df['PUBLISHER'] = df['PUBLISHER'].fillna('Unknown')
-    logging.info("Filled missing values in 'DEVELOPER' and 'PUBLISHER'.")
+    df['GENDER'] = df['GENDER'].fillna('Unknown')
+    df['OPERABILITY_STATUS'] = df['OPERABILITY_STATUS'].fillna('Unknown')
+    logging.info("Filled missing values in 'DEVELOPER', 'PUBLISHER', 'GENDER', and 'OPERABILITY_STATUS'.")
 
     # Standardize 'GENDER'
     df['GENDER'] = df['GENDER'].apply(standardize_gender)
@@ -96,5 +97,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
