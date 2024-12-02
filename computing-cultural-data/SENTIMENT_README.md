@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Sentiment Analysis of Dress-Up Game Descriptions
 
 ## Project Overview
@@ -83,5 +82,5 @@ The dataset includes Flashpoint dress-up game descriptions along with metadata s
 
 The sentiment distribution is currently limited but is expected to improve as more games are included from the Flashpoint Archive.
 
-For more information on this approach, see: [https://www.sbgames.org/proceedings2020/ComputacaoShort/209781.pdf](https://www.sbgames.org/proceedings2020/ComputacaoShort/209781.pdf)
->>>>>>> a5f0c9334d2e1ca40fb6fb78e8cfa0858b8280f5
+For more information on this approach: [https://www.sbgames.org/proceedings2020/ComputacaoShort/209781.pdf](https://www.sbgames.org/proceedings2020/ComputacaoShort/209781.pdf)
+
