@@ -97,6 +97,18 @@ def main():
         logging.error(f"Error loading CSV: {e}")
         return
 
+    # Validate columns
+    expected_columns = ['GAME_NAME', 'YOR', 'OPERABILITY_STATUS', 'DEVELOPER', 'PUBLISHER', 'GENDER', 'NO_OF_SKINTONES', 'GAME_LINK']
+    missing_columns = [col for col in expected_columns if col not in df.columns]
+
+    if missing_columns:
+        print(f"Error: Missing columns in the CSV file: {missing_columns}")
+        logging.error(f"Missing columns in the CSV file: {missing_columns}")
+        exit(1)
+    else:
+        print("All expected columns are present.")
+        logging.info("All expected columns are present.")
+
     # Display initial data info
     print("\nInitial Data Info:")
     print(df.info())
@@ -176,7 +188,7 @@ def main():
 
     # Save the cleaned dataset
     try:
-        df.to_csv('dress_up_games.csv', index=False)
+        df.to_csv('cleaned_dress_up_games.csv', index=False)
         logging.info("Cleaned data saved to 'cleaned_dress_up_games.csv'.")
         print("\nCleaned data saved to 'cleaned_dress_up_games.csv'")
     except Exception as e:
