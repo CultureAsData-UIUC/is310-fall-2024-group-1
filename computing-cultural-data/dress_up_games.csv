@@ -1,21 +1,21 @@
-game_name,YOR,operability_status,developer,publisher,gender,no_of_skintones,game_link
-"Bring It On",2005,operable,G-Game,"Yahoo! Korea",F,1,https://ooooooooo.ooo/static/?e0f637b9-e5bd-41b6-a61d-309633a932d4
-"Alice in Wonderland",2007,operable,DressUpWho,DressUpWho,F,1,https://ooooooooo.ooo/static/?2bb5ed50-cf95-4081-8134-55bf7d697601
-"Anime Character Maker 2",2009,operable,Xdanond,Kongregate,"M/F",11,https://ooooooooo.ooo/static/?dba0d4ce-0747-8515-442e-97025e222493
-"Beautiful Alice",2008,operable,AllForGirls,Kongregate,F,1,https://ooooooooo.ooo/static/?c65c45ab-7375-42d1-8b59-52d45c2d0c4f
-"Beach Doll Dress Up",2006,non-operable,"www.roiworld.com","www.roiworld.com",F,1,https://ooooooooo.ooo/static/?92db83d9-1dce-490d-b137-875762791aec
-"DKNY Spring 2008 2",2008,operable,"Glorious Games Group AB",,F,1,http://cdn.stardoll.com/flash/loader.swf?real_brand=true&celeb_base=http://cdn.stardoll.com/celeb/&doll=http://cdn.stardoll.com/cms/dolls/843.swf?15112&doll_id=843&toolbarHref=http://cdn.stardoll.com/flash/toolbar.swf&toolbarxml=/en/xml/dollToolbar.php&loggedin=true
-"[S] June: Star in a Dress-Up Game Circa 2009",2009,operable,lavendersiren,Stardoll,F,1,http://pipe.miroware.io/609e0655a333fb12a3acf5b3/left%20beef/junedressup.swf
-"50's Fashion Dress Up Game (2010)",2010,operable,Pichichama,"DeviantArt; Rinmaru Games",F,4,https://www.deviantart.com/pichichama/art/50-s-fashion-dress-up-game-156903879
-"Cover Model Dress Up: April",2010,non-operable,Spil Games,girlsgogames.com,F,1,https://flashpointproject.github.io/flashpoint-database/search/#3e54f75c-8056-4d7b-b1f0-4c9507bd4bf6
-"2010 Teens Fashion Show",2010,operable,iGirlsGames,iGirlsGames,F,1,https://flashpointproject.github.io/flashpoint-database/search/#6281bf1b-b333-4544-90eb-dc4822d21329
-"Anime Bikini Dress Up Game",2012,operable,Pichichama,"DeviantArt; Rinmaru Games",F,6,https://flashpointproject.github.io/flashpoint-database/search/#801e4eb8-6d52-4215-bfd5-f48342ff864e
-"284 Modern Princess Dress Up Game",2013,non-operable,Pichichama,"DeviantArt; Rinmaru Games",F,11,https://flashpointproject.github.io/flashpoint-database/search/#4e4ad063-bc51-40bf-97f3-059b4226c5f3
-"Summer BFF Dress Up Game",2014,non-operable,Pichichama,Rinmaru Games,F,9,https://flashpointproject.github.io/flashpoint-database/search/#df4da752-f1be-4c49-9481-95b9dac35dbb
-"Amazon Warrior Creator",2018,operable,Pichichama,rinmarugames.com,F,16,https://flashpointproject.github.io/flashpoint-database/search/#5a3a1e28-95d5-423a-bd89-efdce7d54cb7
-"Cinderella Flies to Mexico",2015,non-operable,DressUpWho,DressUpWho,F,1,https://flashpointproject.github.io/flashpoint-database/search/#12b32c68-a7c6-407f-b1fd-d3b7e52808f5
-"Color Me Lolita",2015,non-operable,Lina01,Lina01,F,1,https://flashpointproject.github.io/flashpoint-database/search/#857fe951-aa8c-4240-90b3-aa12da73c8d1
-"Anime Summer Girls Dress Up Game",2016,operable,PrinceofRedRoses,PrinceofRedRoses,F,14,https://flashpointproject.github.io/flashpoint-database/search/#5200dd17-0d4e-4a2b-8916-1ebadf45f964
-"Boho Chic Spring Shopping",2017,non-operable,"Games for Girlz","Games for Girlz",F,6,https://flashpointproject.github.io/flashpoint-database/search/#d21d3a97-eb13-40cd-9c33-152ac878feb1
-"Swimming Pool Delight",2018,operable,GirlGames,GirlGames,F,5,https://flashpointproject.github.io/flashpoint-database/search/#9959ba28-8c10-45f6-ab12-745913d4965f
-"Geisha Dress-Up Game",2018,non-operable,AzaleasDolls,DeviantArt,F,5,https://flashpointproject.github.io/flashpoint-database/search/#781d7ed6-4e0a-f285-92e4-dab43bdad667
+GAME_NAME,YOR,OPERABILITY_STATUS,DEVELOPER,PUBLISHER,GENDER,NO_OF_SKINTONES,GAME_LINK
+Bring It On,2005,Operable,G-Game,Yahoo! Korea,F,1,https://ooooooooo.ooo/static/?e0f637b9-e5bd-41b6-a61d-309633a932d4
+Alice in Wonderland,2007,Operable,DressUpWho,DressUpWho,F,1,https://ooooooooo.ooo/static/?2bb5ed50-cf95-4081-8134-55bf7d697601
+Anime Character Maker 2,2009,Operable,Xdanond,Kongregate,M/F,11,https://ooooooooo.ooo/static/?dba0d4ce-0747-8515-442e-97025e222493
+Beautiful Alice,2008,Operable,AllForGirls,Kongregate,F,1,https://ooooooooo.ooo/static/?c65c45ab-7375-42d1-8b59-52d45c2d0c4f
+Beach Doll Dress Up,2006,Non-operable,www.roiworld.com,www.roiworld.com,F,1,https://ooooooooo.ooo/static/?92db83d9-1dce-490d-b137-875762791aec
+DKNY Spring 2008 2,2008,Operable,Glorious Games Group AB,,F,1,http://cdn.stardoll.com/flash/loader.swf?real_brand=true&celeb_base=http://cdn.stardoll.com/celeb/&doll=http://cdn.stardoll.com/cms/dolls/843.swf?15112&doll_id=843&toolbarHref=http://cdn.stardoll.com/flash/toolbar.swf&toolbarxml=/en/xml/dollToolbar.php&loggedin=true
+[S] June: Star in a Dress-Up Game Circa 2009,2009,Operable,lavendersiren,Stardoll,F,1,http://pipe.miroware.io/609e0655a333fb12a3acf5b3/left%20beef/junedressup.swf
+50's Fashion Dress Up Game (2010),2010,Operable,Pichichama,"DeviantArt; Rinmaru Games",F,4,https://www.deviantart.com/pichichama/art/50-s-fashion-dress-up-game-156903879
+Cover Model Dress Up: April,2010,Non-operable,Spil Games,girlsgogames.com,F,1,https://flashpointproject.github.io/flashpoint-database/search/#3e54f75c-8056-4d7b-b1f0-4c9507bd4bf6
+2010 Teens Fashion Show,2010,Operable,iGirlsGames,iGirlsGames,F,1,https://flashpointproject.github.io/flashpoint-database/search/#6281bf1b-b333-4544-90eb-dc4822d21329
+Anime Bikini Dress Up Game,2012,Operable,Pichichama,"DeviantArt; Rinmaru Games",F,6,https://flashpointproject.github.io/flashpoint-database/search/#801e4eb8-6d52-4215-bfd5-f48342ff864e
+284 Modern Princess Dress Up Game,2013,Non-operable,Pichichama,"DeviantArt; Rinmaru Games",F,11,https://flashpointproject.github.io/flashpoint-database/search/#4e4ad063-bc51-40bf-97f3-059b4226c5f3
+Summer BFF Dress Up Game,2014,Non-operable,Pichichama,Rinmaru Games,F,9,https://flashpointproject.github.io/flashpoint-database/search/#df4da752-f1be-4c49-9481-95b9dac35dbb
+Amazon Warrior Creator,2018,Operable,Pichichama,rinmarugames.com,F,16,https://flashpointproject.github.io/flashpoint-database/search/#5a3a1e28-95d5-423a-bd89-efdce7d54cb7
+Cinderella Flies to Mexico,2015,Non-operable,DressUpWho,DressUpWho,F,1,https://flashpointproject.github.io/flashpoint-database/search/#12b32c68-a7c6-407f-b1fd-d3b7e52808f5
+Color Me Lolita,2015,Non-operable,Lina01,Lina01,F,1,https://flashpointproject.github.io/flashpoint-database/search/#857fe951-aa8c-4240-90b3-aa12da73c8d1
+Anime Summer Girls Dress Up Game,2016,Operable,PrinceofRedRoses,PrinceofRedRoses,F,14,https://flashpointproject.github.io/flashpoint-database/search/#5200dd17-0d4e-4a2b-8916-1ebadf45f964
+Boho Chic Spring Shopping,2017,Non-operable,"Games for Girlz","Games for Girlz",F,6,https://flashpointproject.github.io/flashpoint-database/search/#d21d3a97-eb13-40cd-9c33-152ac878feb1
+Swimming Pool Delight,2018,Operable,GirlGames,GirlGames,F,5,https://flashpointproject.github.io/flashpoint-database/search/#9959ba28-8c10-45f6-ab12-745913d4965f
+Geisha Dress-Up Game,2018,Non-operable,AzaleasDolls,DeviantArt,F,5,https://flashpointproject.github.io/flashpoint-database/search/#781d7ed6-4e0a-f285-92e4-dab43bdad667
