@@ -129,12 +129,12 @@ def main():
     else:
         logging.warning("'NO_OF_SKINTONES' column not found in dataset.")
 
-    # Clean 'GAME_DESCRIPTION' instead of 'GAME_LINK'
-    if 'GAME_DESCRIPTION' in df.columns:
-        df['GAME_DESCRIPTION'] = df['GAME_DESCRIPTION'].apply(clean_game_link)
-        logging.info("Cleaned 'GAME_DESCRIPTION' column.")
+    # Clean 'GAME_LINK'
+    if 'GAME_LINK' in df.columns:
+        df['GAME_LINK'] = df['GAME_LINK'].apply(clean_game_link)
+        logging.info("Cleaned 'GAME_LINK' column.")
     else:
-        logging.warning("'GAME_DESCRIPTION' column not found in dataset.")
+        logging.warning("'GAME_LINK' column not found in dataset.")
 
     # Standardize 'OPERABILITY_STATUS'
     if 'OPERABILITY_STATUS' in df.columns:
