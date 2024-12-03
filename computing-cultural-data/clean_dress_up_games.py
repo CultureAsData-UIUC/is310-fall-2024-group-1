@@ -1,6 +1,7 @@
 import pandas as pd
 import logging
 import csv
+import os
 
 # Configure logging
 logging.basicConfig(filename='clean_dress_up_games.log', level=logging.INFO,
@@ -61,6 +62,11 @@ def detect_invisible_characters():
         print(f"Error reading CSV for invisible characters: {e}")
 
 def main():
+    # Print the absolute path to ensure correct file is being read
+    csv_path = 'dress_up_games.csv'
+    absolute_csv_path = os.path.abspath(csv_path)
+    print(f"Reading CSV from: {absolute_csv_path}\n")
+
     # Inspect the CSV first
     print("Inspecting CSV with csv.reader:")
     inspect_csv_with_csv_module()
@@ -80,7 +86,7 @@ def main():
             on_bad_lines='skip'       # Skip malformed lines
         )
         logging.info("Loaded 'dress_up_games.csv' successfully.")
-        print("Columns Detected:", df.columns.tolist())  # Debugging line to check column names
+        print("\nColumns Detected:", df.columns.tolist())  # Debugging line to check column names
     except FileNotFoundError:
         logging.error("File 'dress_up_games.csv' not found.")
         return
@@ -100,7 +106,7 @@ def main():
     # Standardize Column Names
     df.columns = [col.strip().upper().replace(' ', '_').replace('.', '') for col in df.columns]
     logging.info("Standardized column names.")
-    print("Standardized Columns:", df.columns.tolist())  # Additional debugging
+    print("\nStandardized Columns:", df.columns.tolist())  # Additional debugging
 
     # Handle Missing Values with Conditional Checks
     if 'DEVELOPER' in df.columns:
@@ -178,6 +184,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
