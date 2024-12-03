@@ -8,11 +8,11 @@ Because we had a csv that already stored the data that we were using, I started 
 
 #### Feature Selection
 
-**Year of Release (YOR)**
+- **Year of Release (YOR)**
 
 #### Model Choice
 
-A **Linear Regression** model is chosen to predict the continuous variable of the number of skin tones in the game.
+- A **Linear Regression** model is chosen to predict the continuous variable of the number of skin tones in the game.
 
 #### Prediction
 
