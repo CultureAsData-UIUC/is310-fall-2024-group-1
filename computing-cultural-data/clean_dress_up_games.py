@@ -64,11 +64,11 @@ def main():
     # Inspect the CSV first
     print("Inspecting CSV with csv.reader:")
     inspect_csv_with_csv_module()
-    
+
     # Detect invisible characters
     print("\nDetecting invisible characters in CSV:")
     detect_invisible_characters()
-    
+
     try:
         # Read the CSV with enhanced parameters
         df = pd.read_csv(
@@ -129,12 +129,12 @@ def main():
     else:
         logging.warning("'NO_OF_SKINTONES' column not found in dataset.")
 
-    # Clean 'GAME_LINK'
-    if 'GAME_LINK' in df.columns:
-        df['GAME_LINK'] = df['GAME_LINK'].apply(clean_game_link)
-        logging.info("Cleaned 'GAME_LINK' column.")
+    # Clean 'GAME_DESCRIPTION' instead of 'GAME_LINK'
+    if 'GAME_DESCRIPTION' in df.columns:
+        df['GAME_DESCRIPTION'] = df['GAME_DESCRIPTION'].apply(clean_game_link)
+        logging.info("Cleaned 'GAME_DESCRIPTION' column.")
     else:
-        logging.warning("'GAME_LINK' column not found in dataset.")
+        logging.warning("'GAME_DESCRIPTION' column not found in dataset.")
 
     # Standardize 'OPERABILITY_STATUS'
     if 'OPERABILITY_STATUS' in df.columns:
@@ -178,6 +178,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
