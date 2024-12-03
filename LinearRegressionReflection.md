@@ -8,7 +8,7 @@ Because we had a csv that already stored the data that we were using, I started 
 
 #### Feature Selection
 
-- **Year of Release (YOR)**
+**Year of Release (YOR)**
 
 #### Model Choice
 
@@ -20,7 +20,7 @@ After training, the model generates predictions for the number of skin tones for
 
 ### 3. Model Evaluation
 
-The model is evaluated using the following metrics:
+The model is evaluated using the following metric:
 
 - **Mean Absolute Error (MAE)**: Measures the average magnitude of errors.
 
