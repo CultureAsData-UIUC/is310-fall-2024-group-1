@@ -16,7 +16,7 @@ Because we had a csv that already stored the data that we were using, I started 
 
 #### Prediction
 
-After training, the model generates predictions for the number of skin tones for each game based on the year of release.
+- After training, the model generates predictions for the number of skin tones for each game based on the year of release.
 
 ### 3. Model Evaluation
 
