@@ -176,7 +176,7 @@ def main():
 
     # Save the cleaned dataset
     try:
-        df.to_csv('cleaned_dress_up_games.csv', index=False)
+        df.to_csv('dress_up_games.csv', index=False)
         logging.info("Cleaned data saved to 'cleaned_dress_up_games.csv'.")
         print("\nCleaned data saved to 'cleaned_dress_up_games.csv'")
     except Exception as e:
