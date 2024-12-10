@@ -11,7 +11,7 @@ To help with navigating the software, I followed some of the tutorials from an "
 
 ## The Process (it was rough)
 After downloading the ImageJ zip file, unzipping, and running it, I was presented with a blank window. I was able to upload a singular image and mess around with some of the settings:
-![image](/img-plot-photos-for-docs/imagej-victory-ss.png)
+![image](img-plot-photos-for-docs/imagej-victory-ss.png)
 
 Originally, we attempted to
 
