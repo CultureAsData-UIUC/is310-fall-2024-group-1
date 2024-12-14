@@ -76,33 +76,40 @@ We identified a null value in the "Screenshot" column for the game Cinderella Fl
 Because all our other values were consistent and existing, we didn’t need to do any cleaning and were able to use our columns as is.
 
 ## Guidelines for Data Use
-Potential Uses: Provide guidelines for how your dataset might be used by other scholars. This section should include potential scholarly applications, with citations to relevant work that informed your project or could benefit from your dataset.
+Contextual Framework for Analysis:
+This dataset focuses on Adobe Flash dress-up games selected from periods before and after 2011. Researchers can consider this temporal division in light of historical, social, and technological shifts that influence online culture. To place these trends into broader scholarly conversations, studies on digital culture and inclusivity can be particularly insightful. For instance, scholarly works have examined how digital platforms mediate identity, culture, and representation (Nakamura, 2008; Shaw, 2014).
 
-**Contextual Framework for Analysis:**
-This dataset focuses on Adobe Flash dress-up games selected before and after the year 2011. This temporal division was chosen to observe whether changes in inclusivity—expressed through the number of available skin tones—corresponded with broader shifts in online gaming culture and aesthetics. Researchers are encouraged to consider this historical framing when conducting their analyses and to remain mindful of how the specific time boundary and subject matter influence observed patterns.
+Using the Controlled Vocabulary and Search Process:
+The controlled vocabulary (e.g., “dress-up,” “fashion,” “character customization”) developed for this project ensures more consistent and reproducible data retrieval. Similar keyword strategies have been recommended in digital humanities for standardizing queries and ensuring comparability across datasets (Drucker, 2014). Future scholars can adopt or adapt this approach to ensure replicability and coherence when navigating large-scale archives.
 
-**Using the Controlled Vocabulary and Search Process:**
-The dataset was compiled using a controlled vocabulary of dress-up-related keywords (e.g., “dress-up,” “fashion,” “styling,” “makeover,” “character customization”). Scholars looking to reproduce or build upon this research can employ a similar keyword strategy to ensure consistency and comparability. This approach helps future users navigate large archives like Flashpoint and systematically locate relevant materials, potentially adapting the controlled vocabulary to their own selection criteria.
+## Incorporating the Dataset’s Structure and Attributes:
+Each attribute—Game Name, Year of Release, Operability Status, Developer, Publisher, Number of Skin Tones, and Screenshots—offers a pathway into analyzing cultural production in digital media. Number of Skin Tones can serve as a proxy for examining inclusivity, reflecting how creators may respond to evolving norms around diversity (Nakamura, 2008). Meanwhile, temporal attributes like Year of Release help contextualize shifts in technological landscapes and audience expectations (Bolter & Grusin, 2000).
 
-**Incorporating the Dataset’s Structure and Attributes:**
-The dataset includes fields such as Game Name, Year of Release, Operability Status, Developer, Publisher, Number of Skin Tones, and Screenshots. It also takes into account columns that were initially considered but eventually removed, ensuring transparency about the selection process. Understanding these attributes is essential for effective data reuse. For example, the Number of Skin Tones field can be used as a key indicator of representation changes over time, while the Year of Release and Operability Status help contextualize technological constraints and access issues related to legacy Flash content.
+## Leveraging Visual Data (Screenshots):
+Screenshots, while initially intended for visualization through tools like ImagePlot, still provide a valuable resource. They allow for qualitative analyses of aesthetic trends and interface changes. Researchers can interpret visual shifts in character designs, color palettes, and thematic styles as indicators of broader cultural and technological transitions. Such visual analysis aligns with digital humanities approaches that emphasize visual forms of knowledge production (Drucker, 2014) and the importance of remediation in digital media (Bolter & Grusin, 2000).
 
-**Leveraging Visual Data (Screenshots):**
-Screenshots were included to support visual analysis and provide qualitative context. They can serve as a resource for examining aesthetic trends, interface evolutions, and stylistic choices. Though the initial attempt to use ImagePlot was hindered by outdated documentation and missing macros, the presence of these images still allows for alternative forms of visualization and image-based research methods. Scholars are encouraged to use these screenshots to complement quantitative analyses, enabling a richer interpretation of how design elements evolve alongside metadata trends.
+## Potential Scholarly Applications:
 
-**Potential Scholarly Applications:**
-- Cultural and Aesthetic Studies: Investigate how visual diversity and representation in digital dress-up games mirror or diverge from broader social attitudes, including the inclusion of more nuanced skin tone options.
-- Temporal Comparisons and Trend Analysis: Examine patterns that emerge before and after 2011, considering how historical moments, technological advancements, or shifting player demographics may align with changes in game design and inclusivity.
-- Methodological Replicability: Use the documented controlled vocabulary and filtering criteria as a blueprint for future archival research. This can help in comparing different eras, platforms, or genres, and encourage standardized practices in digital humanities research.
+Cultural and Aesthetic Studies: Examine how the availability of diverse character customizations in dress-up games relates to cultural discourses on inclusivity and representation (Shaw, 2014; Nakamura, 2008).
+Temporal Comparisons and Trend Analysis: Identify patterns in genre popularity or customization features over time, situating these shifts within historical and media studies frameworks (Cassell & Jenkins, 1998; Murray, 1997).
+Methodological Replicability: Use this dataset’s controlled vocabulary and selection criteria as a model for conducting similar archival research in game studies, platform studies, or digital humanities (Apperley & Parikka, 2018).
+Limitations and Considerations:
 
+## Partial Coverage and Metadata Variability: Differences in metadata quality reflect broader challenges in preserving and cataloging ephemeral digital content. Scholars should note these limitations when drawing conclusions, as has been discussed in media archaeology and platform studies (Apperley & Parikka, 2018).
+Temporal and Cultural Sensitivity: Changes in inclusivity should be analyzed with an understanding that societal values evolve over time. Media scholarship acknowledges that cultural artifacts do not exist in a vacuum but respond to and shape prevailing social discourses (Nakamura, 2008; Shaw, 2014).
+Technical Dependencies: Emulating Flash-based content is increasingly difficult. Considering the broader issues of digital preservation and remediation ensures that researchers maintain a critical perspective on access and interpretation (Bolter & Grusin, 2000).
+Respectful and Informed Engagement:
+While the dataset is anonymized and focused on game metadata, these games are cultural products. Researchers are encouraged to approach their analyses thoughtfully, acknowledging how creative communities, audience dynamics, and historical contexts shape these digital artifacts (Cassell & Jenkins, 1998). Sensitivity to cultural values and a measured interpretive approach help avoid oversimplification.
 
-### Limitations and Considerations
-Discuss any limitations of the dataset, such as privacy concerns, data quality issues, or barriers to reuse. Be transparent about the dataset’s strengths and weaknesses so that future users can approach it with a clear understanding of its potential and its constraints.
+## Encouraging Ongoing Research and Preservation:
+By offering explicit documentation on selection criteria, keyword usage, and methodology, this dataset provides a springboard for future research. Scholars can build on these approaches, incorporating additional data points, new analytical frameworks, or advanced computational methods, ensuring that the study of digital cultural artifacts remains dynamic and responsive to evolving scholarly questions.
 
-- **Partial Coverage and Metadata Variability:** While the dataset is as comprehensive as possible within the project’s scope, it is not exhaustive. Variations in developer documentation, incomplete metadata, and technical constraints may limit representativeness.
-- **Temporal and Cultural Sensitivity:** Interpretations of changes in skin tone diversity or stylistic elements should factor in the cultural and technological contexts of the time. The pre-and post-2011 division is a starting point, not a definitive marker of cultural shifts.
-- **Technical Dependencies:** Emulating or accessing these games may require specialized tools due to the phasing out of Adobe Flash. Future scholars may need to rely on emulators and preserved copies of the dataset, as well as continually updated methods for viewing legacy web content.
-
-### Encouraging Ongoing Research and Preservation:
-The documented rationales—such as the selection of dress-up games specifically, the focus on 2011 as a pivotal year, and the decision to include screenshots—offer a foundation for ongoing inquiry. Future scholars can expand upon these methods by incorporating additional data points, exploring other interactive genres, or applying machine learning techniques. By doing so, researchers can ensure that this dataset remains a living, adaptable resource, supporting deeper understanding and more nuanced analysis of cultural representation within online game archives.
+## Selected References
+Apperley, T., & Parikka, J. (2018). “Platform Studies’ Epistemic Threshold.” Games and Culture, 13(4), 349–369.
+Bolter, J. D., & Grusin, R. (2000). Remediation: Understanding New Media. MIT Press.
+Cassell, J., & Jenkins, H. (Eds.). (1998). From Barbie to Mortal Kombat: Gender and Computer Games. MIT Press.
+Drucker, J. (2014). Graphesis: Visual Forms of Knowledge Production. Harvard University Press.
+Murray, J. H. (1997). Hamlet on the Holodeck: The Future of Narrative in Cyberspace. The Free Press.
+Nakamura, L. (2008). Digitizing Race: Visual Cultures of the Internet. University of Minnesota Press.
+Shaw, A. (2014). Gaming at the Edge: Sexuality and Gender at the Margins of Gamer Culture. University of Minnesota Press.
 
