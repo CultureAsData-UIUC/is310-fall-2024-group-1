@@ -58,7 +58,7 @@ The model performed well but was limited by a single featureâ€”Year of Releaseâ€
 
 Dataset: https://docs.google.com/spreadsheets/d/1cLHv558ZuL77vAilZiQpX9K0Jln4tfCmSbDe6m8vNmI/edit?usp=sharing
 
-Images linked in dataset can be found in [this folder](is310-fall2024-group-1/exp-with-datasets/flashpoint-ss) 
+Images linked in dataset can be found in [this folder](/is310-fall2024-group-1/exp-with-datasets/flashpoint-ss) 
 
 
 ### Dataset Documentation
