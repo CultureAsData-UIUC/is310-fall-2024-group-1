@@ -58,7 +58,7 @@ The model performed well but was limited by a single feature—Year of Release�
 
 Dataset: https://docs.google.com/spreadsheets/d/1cLHv558ZuL77vAilZiQpX9K0Jln4tfCmSbDe6m8vNmI/edit?usp=sharing
 
-Images linked in dataset can be found in [this folder](/is310-fall2024-group-1/exp-with-datasets/flashpoint-ss) 
+Images linked in dataset can be found in [this folder](https://github.com/CultureAsData-UIUC/is310-fall-2024-group-1/tree/main/exp-with-datasets/flashpoint-ss). 
 
 
 ### Dataset Documentation
@@ -74,7 +74,7 @@ The dataset is organized into columns as follows:
 
 We identified a null value in the "Screenshot" column for the game Cinderella Flies to Mexico because the game is non-operable, and therefore no screenshots could be captured. Additionally, we observed inconsistencies in the "Screenshot" column, where the images are in both PNG and JPG formats. These discrepancies arise from differences in how the screenshots were created—some were pulled directly from the Adobe Flash game files, while others were manually taken during gameplay.
 
-For information regarding our method of cleaning & collecting data, [here is our documentation](is310-fall-2024-group-1/midpoint-data-docs/dataset-documentation.md)
+For information regarding our method of cleaning & collecting data, [here is our documentation](https://github.com/CultureAsData-UIUC/is310-fall-2024-group-1/blob/main/midpoint-data-docs/dataset-documentation.md)
 
 Because all our other values were consistent and existing, we didn’t need to do any cleaning and were able to use our columns as is.
 
