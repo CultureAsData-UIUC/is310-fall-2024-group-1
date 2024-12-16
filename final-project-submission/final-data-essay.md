@@ -58,6 +58,7 @@ The model performed well but was limited by a single feature—Year of Release�
 
 Dataset: https://docs.google.com/spreadsheets/d/1cLHv558ZuL77vAilZiQpX9K0Jln4tfCmSbDe6m8vNmI/edit?usp=sharing
 
+Images linked in dataset can be found in [this folder](is310-fall2024=group-1/exp-with-datasets/flashpoint-ss) 
 
 
 ### Dataset Documentation
@@ -72,6 +73,8 @@ The dataset is organized into columns as follows:
 - Screenshots (jpg/png): Images captured from the game, used for analysis or visual reference.
 
 We identified a null value in the "Screenshot" column for the game Cinderella Flies to Mexico because the game is non-operable, and therefore no screenshots could be captured. Additionally, we observed inconsistencies in the "Screenshot" column, where the images are in both PNG and JPG formats. These discrepancies arise from differences in how the screenshots were created—some were pulled directly from the Adobe Flash game files, while others were manually taken during gameplay.
+
+For information regarding our method of cleaning & collecting data, [here is our documentation](is310-fall-2024-group-1/midpoint-data-docs/dataset-documentation.md)
 
 Because all our other values were consistent and existing, we didn’t need to do any cleaning and were able to use our columns as is.
 
@@ -93,9 +96,10 @@ Screenshots, while initially intended for visualization through tools like Image
 Cultural and Aesthetic Studies: Examine how the availability of diverse character customizations in dress-up games relates to cultural discourses on inclusivity and representation (Shaw, 2014; Nakamura, 2008).
 Temporal Comparisons and Trend Analysis: Identify patterns in genre popularity or customization features over time, situating these shifts within historical and media studies frameworks (Cassell & Jenkins, 1998; Murray, 1997).
 Methodological Replicability: Use this dataset’s controlled vocabulary and selection criteria as a model for conducting similar archival research in game studies, platform studies, or digital humanities (Apperley & Parikka, 2018).
-Limitations and Considerations:
 
-## Partial Coverage and Metadata Variability: Differences in metadata quality reflect broader challenges in preserving and cataloging ephemeral digital content. Scholars should note these limitations when drawing conclusions, as has been discussed in media archaeology and platform studies (Apperley & Parikka, 2018).
+## Limitations and Considerations:
+
+### Partial Coverage and Metadata Variability: Differences in metadata quality reflect broader challenges in preserving and cataloging ephemeral digital content. Scholars should note these limitations when drawing conclusions, as has been discussed in media archaeology and platform studies (Apperley & Parikka, 2018).
 Temporal and Cultural Sensitivity: Changes in inclusivity should be analyzed with an understanding that societal values evolve over time. Media scholarship acknowledges that cultural artifacts do not exist in a vacuum but respond to and shape prevailing social discourses (Nakamura, 2008; Shaw, 2014).
 Technical Dependencies: Emulating Flash-based content is increasingly difficult. Considering the broader issues of digital preservation and remediation ensures that researchers maintain a critical perspective on access and interpretation (Bolter & Grusin, 2000).
 Respectful and Informed Engagement:
