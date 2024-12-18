@@ -61,7 +61,7 @@ To source our games, our group used the tag "dress up", and created filters to s
 
 1. Open the Flashpoint database website, and navigate to "Search".
 2. Click the "Search" button: This will renavigate you to a page with a side bar. This allows you to set filters for your queries. The page will look something like this:
-   ![screenshot of Flashpoint advanced search filter](images/flashpoint-2014.png)
+   ![screenshot of Flashpoint advanced search filter](./is310-fall-2024-group-1/images/flashpoint-2014.png)
 4. Delete the filter "Smart Search" by clicking on the X to the left, and create a new filter for "Tags" by clicking on the drop down menu, nagivating to "Tags", and clicking "Add Filter"
 5. Repeat step 3 for "Release Year", and type in any year of choice. (Note:_The search filter cannot accommodate year ranges. Given this limitation, our group had to manually search through individual years to cover pre-2011 games and post-2011 games._)
 6. Click the grey "Search" bar, and the game results will appear on the left.
