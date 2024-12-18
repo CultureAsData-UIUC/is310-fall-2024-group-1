@@ -1,4 +1,4 @@
-# Semester Project Midpoint - Data Documentation
+#a Semester Project Midpoint - Data Documentation
 
 For our semester long project, our group aims to explore Flashpoint Archive's collection of Adobe Flash games and focus on the portrayal of women across various dress-up games pre and post-2011. 
 
@@ -37,7 +37,7 @@ present in each of the games. We are unsure if this is possible with the files t
 
 ## Collecting Data
 ### Sourcing Games: Flashpoint Archive Search
-Due to the lack of a structured directory on Flashpoint Archive's API, our group developed a controlled vocabulary to refine our searches and efficiently locate relevant dress-up games. We followed these steps to ensure consistent results across team members:
+Due to the lack of a structured directory on Flashpoint Archive, our group developed a controlled vocabulary to refine our searches and efficiently locate relevant dress-up games. We followed these steps to ensure consistent results across team members:
 
 - **Controlled Vocabulary Development**:
     - We searched through Flashpoint Archive's current documentation and found a [list of tags used for flash game organization](https://flashpointarchive.org/datahub/Tags ). We pulled these tags and created a list of keywords relevant to dress-up games, such as “dress-up”, “fashion,” “styling,” “makeover,” and “character customization."
