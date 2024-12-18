@@ -41,9 +41,10 @@ We noted…
 - Thea led the initial dataset preparation, starting with a CSV of post-2011 dress-up games. She ensured key attributes like game name, year of release, operability, developer, and skin tone options were present and standardized.
 - After validating operability through the Ruffle emulator, the cleaned dataset was saved for analysis.
 
-**API Scripting & Debugging (Ellis)**
-- Ellis worked on enriching the dataset using the Flashpoint Archive API. Ellis wrote and debugged a Python script to pull additional metadata.
-- Debugging involved identifying inconsistencies in API responses, such as null values or unexpected formats, and improving error handling to ensure reliable data. This enriched the dataset for deeper analysis.
+**Data Cleaning & Enrichment (Ellis)**
+-Refined the dataset for pre-2011 dress-up games using Python and pandas.
+-Standardized fields like Operability Status, Game Links, and Game Theme.
+-Debugged issues with missing values and formatting errors.
 
 **Linear Regression Model (Divya)**
 - Divya built a linear regression model to predict the number of skin tones based on the year of release.
