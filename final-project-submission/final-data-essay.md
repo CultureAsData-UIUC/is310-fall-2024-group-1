@@ -42,9 +42,9 @@ We noted…
 - After validating operability through the Ruffle emulator, the cleaned dataset was saved for analysis.
 
 **Data Cleaning & Enrichment (Ellis)**
--Refined the dataset for pre-2011 dress-up games using Python and pandas.
--Standardized fields like Operability Status, Game Links, and Game Theme.
--Debugged issues with missing values and formatting errors.
+- Refined the dataset for pre-2011 dress-up games using Python and pandas.
+- Standardized fields like Operability Status, Game Links, and Game Theme.
+- Debugged issues with missing values and formatting errors.
 
 **Linear Regression Model (Divya)**
 - Divya built a linear regression model to predict the number of skin tones based on the year of release.
