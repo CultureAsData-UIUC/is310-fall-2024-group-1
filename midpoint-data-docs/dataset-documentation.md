@@ -1,4 +1,4 @@
-#a Semester Project Midpoint - Data Documentation
+# Semester Project Midpoint - Data Documentation (recent edit: 12/18/2024)
 
 For our semester long project, our group aims to explore Flashpoint Archive's collection of Adobe Flash games and focus on the portrayal of women across various dress-up games pre and post-2011. 
 
@@ -31,12 +31,14 @@ currently run on the Ruffle emulator, allowing us to interact with them in-brows
     - Our group chose to preserve the game link in case we need to go back for future reference
 - **Screenshots**: Screenshots of dress-up gameplay
 
+__Note__: *Our team originally included a "gender" column in our dataset during the first draft of the data cleaning and documentation. We have since opted to remove the category, as it enforces an arbitrary & unhelpful gender binary on the Flash games.*
+
 Additional information: Our group is currently trying to see if it is possible to collect the HEX codes/RGB values of the skin tone palettes
 present in each of the games. We are unsure if this is possible with the files that Flashpoint Archive provides its viewers, but in future iterations we aim to collect 
 "skin tones" and create a data visualization of the color distributions across games. 
 
 ## Collecting Data
-### Sourcing Games: Flashpoint Archive Search
+### Sourcing Games: Methodology
 Due to the lack of a structured directory on Flashpoint Archive, our group developed a controlled vocabulary to refine our searches and efficiently locate relevant dress-up games. We followed these steps to ensure consistent results across team members:
 
 - **Controlled Vocabulary Development**:
@@ -53,6 +55,16 @@ Due to the lack of a structured directory on Flashpoint Archive, our group devel
 - **Exclusion Criteria**:
     - Excluded non-dress-up games, NSFW results, or those with limited customization features.
     - Games without specified release dates or those that could not operate fully on the Ruffle emulator were deprioritized.
+ 
+### Sourcing Games: Walkthrough
+To source our games, our group used the tag "dress up", and created filters to sort through the Archive search results.
+
+1. Open the Flashpoint database website, and navigate to "Search".
+2. Click the "Search" button: This will renavigate you to a page with a side bar. This allows you to set filters for your queries. The page will look something like this:
+   [image here](image)
+4. Delete the filter "Smart Search" by clicking on the X to the left, and create a new filter for "Tags" by clicking on the drop down menu, nagivating to "Tags", and clicking "Add Filter"
+5. Repeat step 3 for "Release Year", and type in any year of choice. (Note:_The search filter cannot accommodate year ranges. Given this limitation, our group had to manually search through individual years to cover pre-2011 games and post-2011 games._)
+6. Click the grey "Search" bar, and the game results will appear on the left.
 
 ### Technologies Used for Data Collection
 - **Ruffle Emulator**: Utilized to run and interact with Flash games directly in the browser, facilitating the assessment of customization options and operability.
