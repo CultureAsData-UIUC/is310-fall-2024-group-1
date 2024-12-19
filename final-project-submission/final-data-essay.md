@@ -18,14 +18,17 @@ This approach allowed us to maintain consistency and transparency in our dataset
 
 **Controlled Vocabulary Development**:
 We searched through Flashpoint Archive's current documentation and found a list of tags used for flash game organization. We pulled these tags and created a list of keywords relevant to dress-up games and gender representation, such as “dress-up,” “fashion,” “styling,” “makeover,” and “character customization." These keywords were tested iteratively to capture the broadest selection of games that aligned with our project focus.
+
 **Search Process**:
 - Platform Navigation: Each team member used the Flashpoint Archive's search bar with the controlled vocabulary to locate games.
 Keyword Application: Keywords were applied individually when sourcing games.
 - Date Filters: To separate games pre- and post-2011, we used the "Year Released" filter that was on Flashpoint's search engine, and searched individual years prior to, and after 2011.
+  
 **Inclusion Criteria:**
 - Games with dress-up and customization features (this does *NOT* include RPG games, which often have character customization features)
 - Availability of skin, hair, facial/body features, and/or clothes customization
 - Games that run on the Ruffle emulator for usability in analysis.
+  
 **Exclusion Criteria:**
 - Excluded non-dress-up games, NSFW results, or those with limited customization features.
 - RPG games and other genres of games which hold narrative gameplay
