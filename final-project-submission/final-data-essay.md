@@ -12,7 +12,7 @@ While building our dataset, we initially had a column labeled ‘gender’. Our 
 
 We chose 2011 as the dividing point because Adobe Flash Player 11 was released that year, introducing the first stage 3D and improved 3D rendering capabilities. We chose to analyze dress-up games because we thought they would be a good window into the subconscious biases presented to children and because we all played dress-up games multiple times as kids.
 
-Although we previously referenced the Flashpoint Archive API in earlier checkpoints, we discovered that Flashpoint does not have any public API, and that the script that was originally written does not work (see .py file labeled `api`). We originally intended to use an API to enrich our dataset with additional metadata, this approach did not work due to the lack of a publicly available API for Flashpoint games. As a result, we relied on manual data collection and verification using our controlled vocabulary and search strategies.
+Although we previously referenced the Flashpoint Archive API in earlier checkpoints, we discovered that __Flashpoint does not have any public API__, and that the script that was originally written does not work (see .py file labeled `api`). We originally intended to use an API to enrich our dataset with additional metadata, this approach did not work due to the lack of a publicly available API for Flashpoint games. As a result, we relied on manual data collection and verification using our controlled vocabulary and search strategies.
 
 This approach allowed us to maintain consistency and transparency in our dataset, ensuring that our findings accurately reflect trends in dress-up games before and after 2011.
 
@@ -85,7 +85,7 @@ The dataset is organized into columns as follows:
 
 We identified a null value in the "Screenshot" column for the game Cinderella Flies to Mexico because the game is non-operable, and therefore no screenshots could be captured. Additionally, we observed inconsistencies in the "Screenshot" column, where the images are in both PNG and JPG formats. These discrepancies arise from differences in how the screenshots were created—some were pulled directly from the Adobe Flash game files, while others were manually taken during gameplay.
 
-For information regarding our method of cleaning & collecting data, [here is our documentation](https://github.com/CultureAsData-UIUC/is310-fall-2024-group-1/blob/main/midpoint-data-docs/dataset-documentation.md)
+For information about our methods of collecting game data, [here is our documentation](https://github.com/CultureAsData-UIUC/is310-fall-2024-group-1/blob/main/midpoint-data-docs/dataset-documentation.md)
 
 Because all our other values were consistent and existing, we didn’t need to do any cleaning and were able to use our columns as is.
 
